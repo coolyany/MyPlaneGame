@@ -1,14 +1,5 @@
-﻿  Reading Qt configuration (D:/Qt/Qt5.14.2/5.14.2/msvc2017_64/bin/qmake)
-  uic code\PlaneGame.ui
-  rcc PlaneGame.qrc
-  moc code\PlaneGame.h
-  Bomb.cpp
-  Bullet.cpp
-  EnemyPlane.cpp
-  HeroPlane.cpp
-  main.cpp
-  Map.cpp
+﻿  HeroPlane.cpp
   PlaneGame.cpp
-  qrc_PlaneGame.cpp
+  main.cpp
   moc_PlaneGame.cpp
   PlaneGame.vcxproj -> D:\TEST\Test_Qt\planeGame\PlaneGame\PlaneGame\x64\Release\PlaneGame.exe

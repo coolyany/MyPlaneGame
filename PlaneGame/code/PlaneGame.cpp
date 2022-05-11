@@ -9,6 +9,7 @@ PlaneGame::PlaneGame(QWidget *parent)
     ui.setupUi(this);
 	m_recorder = 0;
 	initScene();
+	connectInit();
 
 	//启动背景音乐
 	//QSound::play(SOUND_BACKGROUND);
@@ -27,17 +28,15 @@ void PlaneGame::initScene()
 	m_Timer.setInterval(GAME_RATE);
 
 	//开始游戏
-	playGame();
+	//playGame();
 
 
 	//随机数种子
 	srand((unsigned int)time(NULL));
 }
 
-void PlaneGame::playGame()
+void PlaneGame::connectInit()
 {
-	//启动定时器
-	m_Timer.start();
 	//监听定时器
 	connect(&m_Timer, &QTimer::timeout, [=]() {
 		//敌机出场
@@ -49,6 +48,24 @@ void PlaneGame::playGame()
 		//碰撞检测
 		collisionDetection();
 	});
+	connect(ui.actionStartGame, &QAction::triggered, this, [=]() {
+		playGame();
+	});
+	connect(ui.actionStopGame, &QAction::triggered, this, [=]() {
+		stopGame();
+	});
+}
+
+void PlaneGame::playGame()
+{
+	//启动定时器
+	m_Timer.start();
+}
+
+void PlaneGame::stopGame()
+{
+	clearScene();
+	
 }
 
 void PlaneGame::updatePosition()
@@ -119,7 +136,21 @@ void PlaneGame::collisionDetection()
 			//空闲飞机 跳转下一次循环
 			continue;
 		}
-		//遍历所有 非空闲的子弹
+		if ( m_hero.m_Rect.intersects(m_enemys[i].m_Rect) )
+		{
+			/*QPixmap gameOver;
+			gameOver.load(":/resource/game_over.png");
+			int f_x = GAME_WIDTH * 0.5 - gameOver.width() * 0.5;
+			int f_y = GAME_HEIGHT * 0.5 - gameOver.height() * 0.5;
+			QRect game_react;
+			game_react.setWidth(gameOver.width());
+			game_react.setHeight(gameOver.height());
+			game_react.moveTo(f_x,f_y);*/
+			clearScene();
+			return;
+		}
+
+		//遍历所有非空闲的子弹
 		for (int j = 0; j < BULLET_NUM; j++)
 		{
 			if (m_hero.m_bullets[j].m_Free)
@@ -150,6 +181,29 @@ void PlaneGame::collisionDetection()
 			}
 		}
 	}
+}
+
+void PlaneGame::clearScene()
+{
+	if (m_Timer.isActive() == true)
+	{
+		m_Timer.stop();
+		m_hero.initHeroPlane();
+		for (size_t i = 0; i < ENEMY_NUM; i++)
+		{
+			m_enemys[i].m_Free = true;
+		}
+		for (size_t j = 0; j < BULLET_NUM; j++)
+		{
+			m_hero.m_bullets[j].m_Free = true;
+		}
+		isOver = true;
+		//更新游戏中元素的坐标
+		updatePosition();
+		//重新绘制图片
+		update();
+	}
+	
 }
 
 void PlaneGame::paintEvent(QPaintEvent * event)
@@ -188,6 +242,18 @@ void PlaneGame::paintEvent(QPaintEvent * event)
 		}
 	}
 
+	if (isOver)
+	{
+		painter.save();
+		QFont font("Arial Black", 20, QFont::Bold, true);
+		font.setLetterSpacing(QFont::AbsoluteSpacing, 10);
+		painter.setFont(font);
+		painter.setPen(Qt::black);
+		painter.translate(GAME_WIDTH * 0.25, GAME_HEIGHT * 0.5);//手写预测
+		painter.drawText(0,0,QStringLiteral("Game Over"));
+		painter.restore();
+		isOver = false;;
+	}
 }
 
 void PlaneGame::mouseMoveEvent(QMouseEvent * event)

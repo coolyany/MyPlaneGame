@@ -3,6 +3,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QTimer>
 #include <QPainter>
+#include <QFont>
 #include <QMouseEvent>
 
 #include "ui_PlaneGame.h"
@@ -21,16 +22,18 @@ public:
     PlaneGame(QWidget *parent = Q_NULLPTR);
 
 	void initScene();
+	void connectInit();
 
 	//启动游戏 用于启动定时器对象
 	void playGame();
+	void stopGame();
 	//更新坐标
 	void updatePosition();
 	//敌机出场
 	void enemyToScene();
 
 	//碰撞检测
-	void collisionDetection();
+	void collisionDetection();	void clearScene();
 protected:
 	//绘图事件
 	void paintEvent(QPaintEvent *event);
@@ -50,7 +53,7 @@ private:
 	int m_recorder;
 	//爆炸数组
 	Bomb m_bombs[BOMB_NUM];
-
+	bool isOver = false;
 private:
     Ui::PlaneGameClass ui;
 };

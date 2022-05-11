@@ -36,4 +36,4 @@
 
 /********** 音效配置数据 **********/
 //#define SOUND_BACKGROUND ":/sound/resource/bg.wav"
-//#define SOUND_BOMB ":/sound/resource/bomb.wav"
+//#define SOUND_BOMB ":/sound/resource/bomb.wav"/********** 结束字体 **********/#define OVER_FONT ":/resource/game_over.png"

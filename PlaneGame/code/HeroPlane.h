@@ -13,6 +13,8 @@ public:
 	void shoot();
 	//设置飞机位置
 	void setPosition(int x, int y);
+	//初始化飞机位置
+	void initHeroPlane();
 public:
 	//飞机资源 对象
 	QPixmap m_Plane;

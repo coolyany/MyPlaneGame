@@ -23,6 +23,30 @@
      <height>26</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>菜单</string>
+    </property>
+    <addaction name="actionStartGame"/>
+    <addaction name="actionNewGame"/>
+    <addaction name="actionStopGame"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>工具</string>
+    </property>
+    <widget class="QMenu" name="menu_3">
+     <property name="title">
+      <string>难度选择</string>
+     </property>
+     <addaction name="action_easy"/>
+     <addaction name="action_mid"/>
+     <addaction name="action_hard"/>
+    </widget>
+    <addaction name="menu_3"/>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -33,6 +57,36 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionNewGame">
+   <property name="text">
+    <string>新游戏</string>
+   </property>
+  </action>
+  <action name="actionStopGame">
+   <property name="text">
+    <string>停止游戏</string>
+   </property>
+  </action>
+  <action name="action_easy">
+   <property name="text">
+    <string>简单</string>
+   </property>
+  </action>
+  <action name="action_mid">
+   <property name="text">
+    <string>中等</string>
+   </property>
+  </action>
+  <action name="action_hard">
+   <property name="text">
+    <string>困难</string>
+   </property>
+  </action>
+  <action name="actionStartGame">
+   <property name="text">
+    <string>开始游戏</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
