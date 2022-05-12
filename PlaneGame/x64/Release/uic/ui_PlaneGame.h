@@ -1,4 +1,4 @@
-﻿/********************************************************************************
+/********************************************************************************
 ** Form generated from reading UI file 'PlaneGame.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.14.2
@@ -25,7 +25,7 @@ class Ui_PlaneGameClass
 {
 public:
     QAction *actionNewGame;
-    QAction *actionPauseGame;
+    QAction *actionStopGame;
     QAction *action_easy;
     QAction *action_mid;
     QAction *action_hard;
@@ -45,8 +45,8 @@ public:
         PlaneGameClass->resize(600, 400);
         actionNewGame = new QAction(PlaneGameClass);
         actionNewGame->setObjectName(QString::fromUtf8("actionNewGame"));
-        actionPauseGame = new QAction(PlaneGameClass);
-        actionPauseGame->setObjectName(QString::fromUtf8("actionPauseGame"));
+        actionStopGame = new QAction(PlaneGameClass);
+        actionStopGame->setObjectName(QString::fromUtf8("actionStopGame"));
         action_easy = new QAction(PlaneGameClass);
         action_easy->setObjectName(QString::fromUtf8("action_easy"));
         action_mid = new QAction(PlaneGameClass);
@@ -79,7 +79,7 @@ public:
         menuBar->addAction(menu_2->menuAction());
         menu->addAction(actionStartGame);
         menu->addAction(actionNewGame);
-        menu->addAction(actionPauseGame);
+        menu->addAction(actionStopGame);
         menu_2->addAction(menu_3->menuAction());
         menu_3->addAction(action_easy);
         menu_3->addAction(action_mid);
@@ -94,7 +94,7 @@ public:
     {
         PlaneGameClass->setWindowTitle(QCoreApplication::translate("PlaneGameClass", "PlaneGame", nullptr));
         actionNewGame->setText(QCoreApplication::translate("PlaneGameClass", "\346\226\260\346\270\270\346\210\217", nullptr));
-        actionPauseGame->setText(QCoreApplication::translate("PlaneGameClass", "\346\232\202\345\201\234\346\270\270\346\210\217", nullptr));
+        actionStopGame->setText(QCoreApplication::translate("PlaneGameClass", "\345\201\234\346\255\242\346\270\270\346\210\217", nullptr));
         action_easy->setText(QCoreApplication::translate("PlaneGameClass", "\347\256\200\345\215\225", nullptr));
         action_mid->setText(QCoreApplication::translate("PlaneGameClass", "\344\270\255\347\255\211", nullptr));
         action_hard->setText(QCoreApplication::translate("PlaneGameClass", "\345\233\260\351\232\276", nullptr));

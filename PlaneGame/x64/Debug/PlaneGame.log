@@ -1,14 +1,1 @@
-﻿  Reading Qt configuration (D:/IDE/Qt_5.12.0/5.14.2/msvc2017_64/bin/qmake)
-  uic code\PlaneGame.ui
-  rcc PlaneGame.qrc
-  moc code\PlaneGame.h
-  Bomb.cpp
-  Bullet.cpp
-  EnemyPlane.cpp
-  HeroPlane.cpp
-  main.cpp
-  Map.cpp
-  PlaneGame.cpp
-  qrc_PlaneGame.cpp
-  moc_PlaneGame.cpp
-  PlaneGame.vcxproj -> D:\Code\PlaneGame\MyPlaneGame\x64\Debug\PlaneGame.exe
+﻿C:\Users\moon\AppData\Local\QtMsBuild\qt_vars.targets(68,5): error : There's no Qt version assigned to project PlaneGame.vcxproj for configuration Debug/x64. Please assign a Qt installation in 'Qt Project Settings'.
