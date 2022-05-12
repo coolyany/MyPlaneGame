@@ -31,5 +31,11 @@
 *.out
 *.app
 
+<<<<<<< HEAD
 x64/
 .vs/
+=======
+#vs
+x64/
+*.vs
+>>>>>>> ddab283f9cf5948998178c69a81efae811e7ffc1
