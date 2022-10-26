@@ -1,1 +1,0 @@
-﻿C:\Users\moon\AppData\Local\QtMsBuild\qt_vars.targets(68,5): error : There's no Qt version assigned to project PlaneGame.vcxproj for configuration Debug/x64. Please assign a Qt installation in 'Qt Project Settings'.
